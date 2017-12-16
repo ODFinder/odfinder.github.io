@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Open Directory Finder</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
+<style type="text/css">
+	h1{
+		font-size:4vw;
+		/*font-family: 'Press Start 2P', cursive;*/
+
+		text-align: center;
+		/*margin: 0px;*/
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	#radio{
+		padding-top: 40px;
+		/*width:465px;*/
+		margin:0 auto;
+		text-align:center;
+		/*font-family: 'Press Start 2P', cursive;*/
+	}
+	body{
+		font-family: 'Press Start 2P', cursive;
+		background-color: rgba(99, 99, 99, 0.1);
+		color: #1A1A1A;
+	}
+	/*@media only screen and (max-width: 767px) {
+	 .input-group{
+
+	 }
+	}*/
+	.form-control:focus {
+	  border-color: #000000;
+	  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+	}
+	.btn{
+		    background-color: #1A1A1A !important;
+		    font-size:1.5vw;
+	}
+	#radio{
+		font-size:1vw;
+	}
+	.dropdown-item{
+		font-size:1vw;
+	}
+</style>
+  </head>
+  <body>
+    <!-- Title  -->
+    <h1>OD Finder</h1>
+
+<!-- Component Radio -->
+
+
+<!-- Component Main -->
+<div class="container">
+	
+<div class="input-group ">
+ <!--  -->
+ <div class="input-group-btn">
+         <button id="dropdown" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Video
+         </button>
+         <div id="format" class="dropdown-menu">
+           <a class="dropdown-item" href="#">Video</a>
+           <a class="dropdown-item" href="#">Video HD</a>
+           <a class="dropdown-item" href="#">Video 3D</a>
+           <div role="separator" class="dropdown-divider"></div>
+           <a class="dropdown-item" href="#">Audio</a>
+           <a class="dropdown-item" href="#">Pictures</a>
+           <a class="dropdown-item" href="#">Text</a>
+           <a class="dropdown-item" href="#">Software|Games</a>
+           <a class="dropdown-item" href="#">Compressed</a>
+         </div>
+       </div>
+
+
+ <!--  -->
+  <input id="maininput" type="text" class="form-control" autofocus>
+
+  <span class="input-group-btn">
+          <button id="go" class="btn btn-secondary" type="button">Go!</button>
+        </span>
+</div>
+
+
+<div id="radio" class="container">
+
+<table class="table">
+  <tbody>
+    <tr>
+    	<div class="input-group">
+    		
+      <td align="right"><input id="radio" type="radio" name="Search" value="Loose" checked="checked"> Loose Search</td>
+    	</div>
+    	<div class="input-group">
+    		
+      <td align="left"><input id="radio" type="radio" name="Search" value="Strict"> Strict Search</td>
+    	</div>
+    </tr>
+  </tbody>
+</table>
+	
+</div>
+
+<!-- 
+<div class="container">
+	<footer class="footer">
+		
+	</footer>
+
+</div>
+ -->
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+
+    <script type="text/javascript">
+    	$( document ).ready(function() {
+
+    		$('body').keypress(function(e) {
+    		    if (e.which == 13) {
+    		      $("#go").trigger('click');
+    		      console.log("search button clicked");
+    		    }
+    		  });
+
+
+    		$( ".dropdown-item" ).click(function() {
+    			var format = $(this).text();
+
+    			switch(format){
+    				case "Video":{
+    					format = "Video";
+    					break;
+    				}
+    				case "Video HD":{
+    					format = "Vid HD";
+    					break;
+    				}
+    				case "Video 3D":{
+    					format = "Vid 3D";
+    					break;
+    				}
+    				case "Audio":{
+    					format = "Audio";
+    					break;
+    				}
+    				case "Pictures":{
+    					format = "Pics";
+    					break;
+    				}
+    				case "Text":{
+    					format = "Text";
+    					break;
+    				}
+    				case "Software|Games":{
+    					format = "Soft";
+    					break;
+    				}
+    				case "Compressed":{
+    					format = "Compr";
+    					break;
+    				}
+    			}
+
+    			// alert(format);
+    			$("#dropdown").text(format);
+    		});
+
+    		// $(function() {
+    		//     subMenuItem.click(function() {
+    		//         button.text($(this).text());                                       
+    		//         button.append(' <i class="fal fa-' + $(this).attr("value") + '">');
+    		//         button.val($(this).text());
+    		//         subMenu.slideToggle(250, 'easeInOutQuint');
+    		//     });
+    		// });
+    		$( "#go" ).click(function() {
+    			var query = $('#maininput').val();
+    			query = $.trim(query);					
+    			query = query.replace(/  +/g, ' ');	
+    			query = query.split(' ').join('.');		
+    			// alert(query);
+    			var format = $('#dropdown').text();
+    			var search = $('input[name=Search]:checked').val(); 
+
+    			     switch(format){
+
+    			     	
+    			       case("Video"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) "; 
+    			         break;
+    			       }
+
+    			       
+    			       case("Vid HD"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       			query = "intext:\""+query+".1080p\"";
+    			       		}
+    			       		else{
+    			       	 		query = "intext:"+query+".1080p";
+    			       	
+    			       		}
+    			       	}
+    			         var extensions=" (avi|mkv|mp4) "; 
+    			         break;
+    			       }
+
+    			       
+    			       case("Vid 3D"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       			query = "intext:\""+query+".sbs\"";
+    			       		}
+    			       		else{
+    			       	 		query = "intext:"+query+".sbs";
+    			       		}
+    			       	}
+    			         var extensions=" (avi|mkv|mp4) "; 
+    			         break;
+    			       }
+
+    			       
+    			       case("Audio"):{
+    			       	if(query != ''){	
+    			       		       		if(search == 'Strict'){
+    			       		       	 		query = "intext:\""+query+"\"";
+    			       		       		}
+    			       		       		else{
+    			       		       			query = "intext:"+query;
+    			       		       		}
+    			       		       	}
+    			         var extensions=" (mp3|ac3|flac|m4a|wav|wma) ";
+    			         break;
+    			       }
+
+    			       
+    			       case("Pics"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (jpg|png|gif|jpeg|psd|bmp|tif|tiff) ";
+    			         break;
+    			       }
+
+    			      
+    			       case("Text"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (CBZ|CBR|CHM|DOC|DOCX|EPUB|MOBI|ODT|PDF|RTF|txt) "; 
+    			         break;
+    			       }
+
+    			      
+    			       case("Soft"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (apk|exe|iso|rar|tar|zip|deb|msi) ";
+    			         break;
+    			       }
+
+
+    			      
+    			       case("Compr"):{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (7z|bz2|gz|iso|rar|zip|tar) "; 
+    			         break;
+    			       }
+
+
+    			       
+    			       default:{
+    			       	if(query != ''){	
+    			       		if(search == 'Strict'){
+    			       	 		query = "intext:\""+query+"\"";
+    			       		}
+    			       		else{
+    			       			query = "intext:"+query;
+    			       		}
+    			       	}
+    			         var extensions=" (avi|mkv|mov|mp4|mpg|wmv|flv) "; 
+    			         break;
+    			       }
+    			     }
+
+    				     var commonToAll=" intitle:\"index.of./\" -inurl:(jsp|pl|php|html|aspx|htm|cf|shtml|py) -inurl:(index_of|wp-content|listen77|mp3raid|mp3toss|mp3drug|index_of|wallywashis) ";          
+
+    			         var finalquery=query+extensions+commonToAll;
+    			         finalquery = $.trim(finalquery)
+    			         var url="https://www.google.com/search?q="+encodeURIComponent(finalquery);                 
+    			         window.open(url,'_blank');                                                                 
+
+
+    			// alert(search);
+    		});
+
+    	});
+    </script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111315522-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-111315522-1');
+    </script>
+  </body>
+</html>
