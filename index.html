@@ -12,7 +12,7 @@
 
 <style type="text/css">
 	h1{
-        font-size: 6vw;
+        font-size: 4vw;
 
 		/*font-size:200%;*/
 		/*font-family: 'Press Start 2P', cursive;*/
@@ -29,15 +29,23 @@
 		text-align:center;
 		/*font-family: 'Press Start 2P', cursive;*/
 	}
+       /*input[type=radio] {
+        border: 0px;
+        width: 100%;
+        height: 1em;
+        width: 4em;
+    }*/
 	body{
 		font-family: 'Press Start 2P', cursive;
 		background-color: rgba(99, 99, 99, 0.1);
 		color: #1A1A1A;
+        
 	}
 	@media only screen and (max-width: 767px) {
 	 h1{
-        font-size: xx-large;
+        font-size: x-large;
      }
+     h1:hover{ cursor: none; }
      #radio{
         font-size: xx-small;
 
@@ -68,9 +76,23 @@
 		font-size: x-small;
 
 	}
+    a, a:hover{
+        color: #1A1A1A;
+    }
+    .body{
+        cursor: url(download1.png), auto;
+    }
+/*
+    body {
+        height: 200px;
+        border: 3px dashed #CCCCCC;
+        background: #FFFFFF;
+        padding: 20px;
+        cursor: url(./download.png), none;
+    }*/
 </style>
   </head>
-  <body>
+  <body class="body">
     <!-- Title  -->
     <h1>OD Finder</h1>
 
@@ -116,11 +138,11 @@
     <tr>
     	<div class="input-group">
     		
-      <td align="right"><input id="radio" type="radio" name="Search" value="Loose" checked="checked"> Loose Search</td>
+      <td align="right"><input id="radio1" type="radio" name="Search" value="Loose" checked="checked"> <span data-labelfor="radio1"><a href="#"> Loose Search</a></span></td>
     	</div>
     	<div class="input-group">
     		
-      <td align="left"><input id="radio" type="radio" name="Search" value="Strict"> Strict Search</td>
+      <td align="left"><input id="radio2" type="radio" name="Search" value="Strict"> <span data-labelfor="radio2"><a href="#">Strict search</a> </span></td>
     	</div>
     </tr>
   </tbody>
@@ -149,7 +171,7 @@
 
     <script type="text/javascript">
     	$( document ).ready(function() {
-
+            $('body').css('cursor', 'url(download.png)');
     		$('body').keypress(function(e) {
     		    if (e.which == 13) {
     		      $("#go").trigger('click');
@@ -200,6 +222,27 @@
     			$("#dropdown").text(format);
     		});
 
+            $("[data-labelfor]").click(function() {
+                $('#' + $(this).attr("data-labelfor")).prop('checked',
+                                 function(i, oldVal) { return !oldVal; });
+            });
+
+
+
+
+
+
+            // $('body').mouseout(function(){
+            //     $('#mycursor').hide();
+            //     return >false;
+            // });
+            // $('body').mouseenter(function(){
+            //     $('#mycursor').show();
+            //     return >false;
+            // });
+            // $('body').mousemove(function(e){
+            //     $('#mycursor').css('left', e.clientX - 20).css('top', e.clientY + 7);
+            // });
     		// $(function() {
     		//     subMenuItem.click(function() {
     		//         button.text($(this).text());                                       
